@@ -1,0 +1,45 @@
+name: Metrics
+
+on:
+  # Schedule daily updates
+  schedule:
+    - cron: "0 0 * * *"
+  # Optional: Run workflow manually
+  workflow_dispatch:
+  # Optional: Run workflow when pushing changes to the default branch
+  push:
+    branches:
+      - master
+      - main
+
+jobs:
+  github-metrics:
+    runs-on: ubuntu-latest
+    steps:
+      # Checkout the repository (required if you want to use any local files or logs)
+      - name: Checkout repository
+        uses: actions/checkout@v3
+
+      # Generate metrics using lowlighter/metrics
+      - name: Generate GitHub Metrics
+        uses: lowlighter/metrics@latest
+        with:
+          token: ${{ secrets.METRICS_TOKEN }}
+          base: "header, repositories" # Customize base layout
+          plugin_isocalendar: "yes"    # Add isometric calendar
+          plugin_languages: "yes"     # Add language stats
+          plugin_stars: "yes"         # Add starred repositories stats
+          plugin_followup: "yes"      # Add recent followers
+          plugin_activity: "yes"      # Add activity overview
+          plugin_lines: "yes"         # Add lines of code
+          config_timezone: "UTC"      # Set timezone (optional)
+
+      # Optional: Commit the generated metrics back to the repository
+      - name: Commit metrics
+        if: success()
+        run: |
+          git config --local user.name "github-actions[bot]"
+          git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add github-metrics.svg
+          git commit -m "Update metrics"
+          git push
