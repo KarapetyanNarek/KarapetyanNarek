@@ -37,15 +37,19 @@ jobs:
           plugin_lines: "yes"         # Add lines of code
           config_timezone: "UTC"      # Set timezone (optional)
 
-      - name: Favorites Characters
+      - name: Compact display
         uses: lowlighter/metrics@latest
         with:
-          filename: metrics.plugin.anilist.characters.svg
-          token: NOT_NEEDED
+          filename: metrics.plugin.achievements.compact.svg
+          token: ${{ secrets.METRICS_TOKEN }}
           base: ""
-          plugin_anilist: yes
-          plugin_anilist_sections: characters
-          plugin_anilist_limit_characters: 22
+          plugin_achievements: yes
+          plugin_achievements_only: >-
+            polyglot, stargazer, sponsor, deployer, member, maintainer, developer,
+            scripter, packager, explorer, infographile, manager
+          plugin_achievements_display: compact
+          plugin_achievements_threshold: X
+
           
       - name: Verify metrics file existence
         run: |
@@ -59,7 +63,7 @@ jobs:
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f github-metrics.svg metrics.plugin.anilist.characters.svg
+          git add -f github-metrics.svg metrics.plugin.achievements.compact.svg
           if git diff --cached --quiet; then
             echo "No changes to commit"
             exit 0
