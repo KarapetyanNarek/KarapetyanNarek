@@ -37,6 +37,13 @@ jobs:
           plugin_lines: "yes"         # Add lines of code
           config_timezone: "UTC"      # Set timezone (optional)
 
+      - name: Verify metrics file existence
+        run: |
+          if [ ! -f "github-metrics.svg" ]; then
+            echo "Error: File github-metrics.svg not found!"
+            exit 1
+          fi
+          
       # Optional: Commit the generated metrics back to the repository
       - name: Commit metrics
         if: success()
