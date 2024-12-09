@@ -59,3 +59,5 @@
 <hr />
 
 ![Metrics](./github-metrics.svg)
+
+![Favorite Characters](./metrics.plugin.anilist.characters.svg)
