@@ -60,4 +60,6 @@
 
 ![Metrics](./github-metrics.svg)
 
-![Favorite Characters](./metrics.plugin.anilist.characters.svg)
+<hr />
+
+![Compact Achievements](./metrics.plugin.achievements.compact.svg)
