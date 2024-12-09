@@ -37,6 +37,16 @@ jobs:
           plugin_lines: "yes"         # Add lines of code
           config_timezone: "UTC"      # Set timezone (optional)
 
+      - name: Favorites Characters
+        uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.plugin.anilist.characters.svg
+          token: NOT_NEEDED
+          base: ""
+          plugin_anilist: yes
+          plugin_anilist_sections: characters
+          plugin_anilist_limit_characters: 22
+          
       - name: Verify metrics file existence
         run: |
           if [ ! -f "github-metrics.svg" ]; then
@@ -49,7 +59,7 @@ jobs:
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add github-metrics.svg
+          git add -f github-metrics.svg metrics.plugin.anilist.characters.svg
           if git diff --cached --quiet; then
             echo "No changes to commit"
             exit 0
