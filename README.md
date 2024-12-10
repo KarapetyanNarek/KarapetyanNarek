@@ -62,4 +62,4 @@
 
 ![Compact Achievements](./metrics.plugin.achievements.compact.svg)
 
-![LeetCode Stats](./metrics.plugin.leetcode.svg)
+![LeetCode Stats](./metrics.plugin.leetcode.svg?cache_bust=1)
