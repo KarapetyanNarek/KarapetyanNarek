@@ -61,5 +61,3 @@
 ![Metrics](./github-metrics.svg)
 
 ![Compact Achievements](./metrics.plugin.achievements.compact.svg)
-
-![LeetCode Stats]((https://raw.githubusercontent.com/KarapetyanNarek/KarapetyanNarek/main/metrics.plugin.leetcode.svg))
