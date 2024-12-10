@@ -51,6 +51,15 @@ jobs:
           plugin_achievements_threshold: X
 
           
+      - name: LeetCode
+        uses: lowlighter/metrics@latest
+        with:
+          filename: metrics.plugin.leetcode.svg
+          token: NOT_NEEDED
+          base: ""
+          plugin_leetcode: yes
+          plugin_leetcode_sections: solved, skills, recent
+  
       - name: Verify metrics file existence
         run: |
           if [ ! -f "github-metrics.svg" ]; then
@@ -63,7 +72,7 @@ jobs:
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "41898282+github-actions[bot]@users.noreply.github.com"
-          git add -f github-metrics.svg metrics.plugin.achievements.compact.svg
+          git add -f github-metrics.svg metrics.plugin.achievements.compact.svg metrics.plugin.leetcode.svg
           if git diff --cached --quiet; then
             echo "No changes to commit"
             exit 0
