@@ -60,6 +60,6 @@
 
 ![Metrics](./github-metrics.svg)
 
-<hr />
-
 ![Compact Achievements](./metrics.plugin.achievements.compact.svg)
+
+![LeetCode Stats](./metrics.plugin.leetcode.svg)
