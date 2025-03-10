@@ -55,9 +55,3 @@
   <img src="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/icons/gimp/gimp-original.svg"  width="40" height="40" alt="gimp"/>&nbsp;&nbsp;
 </p>
 <br />
-
-<hr />
-
-![Metrics](./github-metrics.svg)
-
-![Compact Achievements](./metrics.plugin.achievements.compact.svg)
